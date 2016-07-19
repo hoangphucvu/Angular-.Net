@@ -166,6 +166,9 @@
     <Compile Include="Models\Contacts.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Country.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Employees.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
@@ -184,6 +187,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MyModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\State.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
@@ -221,6 +227,7 @@
     <Content Include="Scripts\AngularController\DataController.js" />
     <Content Include="Scripts\AngularController\EmployeeController.js" />
     <Content Include="Scripts\AngularController\LoginController.js" />
+    <Content Include="Scripts\AngularController\StateController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -263,6 +270,7 @@
     <Content Include="Views\Home\Data.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Employee.cshtml" />
+    <Content Include="Views\Home\State.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Data\" />

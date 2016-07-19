@@ -39,5 +39,25 @@ namespace AngularForMVC.Controllers
             }
             return new JsonResult { Data = employee, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
+
+        public JsonResult GetCountries()
+        {
+            List<Country> allCountry = new List<Country>();
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                allCountry = dc.Country.OrderBy(a => a.CountryName).ToList();
+            }
+            return new JsonResult { Data = allCountry, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+        public JsonResult GetStates(int countryID)
+        {
+            List<State> allStates = new List<State>();
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                allStates = dc.State.Where(a => a.CountryID.Equals(countryID)).OrderBy(a => a.StateName).ToList();
+            }
+            return new JsonResult { Data = allStates, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
     }
 }

@@ -28,5 +28,7 @@ namespace AngularForMVC.Models
         public virtual DbSet<Contacts> Contacts { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
+        public virtual DbSet<Country> Country { get; set; }
+        public virtual DbSet<State> State { get; set; }
     }
 }
