@@ -19,5 +19,15 @@ namespace AngularForMVC.Controllers
             }
             return new JsonResult { Data = contact, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
+
+        public JsonResult UserLogin(LoginData data)
+        {
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var user = dc.User.Where(a => a.Username.Equals(data.Username)
+                && a.Password.Equals(data.Password)).FirstOrDefault();
+                return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+        }
     }
 }

@@ -1,0 +1,19 @@
+﻿<div ng-controller="LoginController">
+    <form novalidate name="f1" ng-submit="Login()">
+        <div style="color:red">{{Message}}</div>
+        <div ng-show="!IsLogin">
+            Username
+            <input type="text" ng-model="LoginData.Username" name="cUsername" ng-class="Submitted?'ng-dirty':''" required autofocus />
+            <span class="error" ng-show="(f1.cUsername.$dirty || Submitted) && f1.cUsername.$error.required">Username required</span>
+            <br />
+            Password
+            <input type="password" ng-model="LoginData.Password" name="cPassword" ng-class="Submitted?'ng-dirty':''" required autofocus />
+            <span class="error" ng-show="(f1.cPassword.$dirty || Submitted) && f1.cPassword.$error.required">Password required</span>
+            <br />
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+@section scripts{
+    <script src="~/Scripts/AngularController/LoginController.js"></script>
+}
