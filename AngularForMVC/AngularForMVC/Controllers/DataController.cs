@@ -29,5 +29,15 @@ namespace AngularForMVC.Controllers
                 return new JsonResult { Data = user, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
+        public JsonResult GetEmployeeList()
+        {
+            List<Employees> employee = new List<Employees>();
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                employee = dc.Employees.OrderBy(a => a.FirstName).ToList();
+            }
+            return new JsonResult { Data = employee, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
     }
 }
