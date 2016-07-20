@@ -227,6 +227,7 @@
     <Content Include="Scripts\AngularController\DataController.js" />
     <Content Include="Scripts\AngularController\EmployeeController.js" />
     <Content Include="Scripts\AngularController\LoginController.js" />
+    <Content Include="Scripts\AngularController\RegisterController.js" />
     <Content Include="Scripts\AngularController\StateController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -271,6 +272,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Employee.cshtml" />
     <Content Include="Views\Home\State.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Data\" />

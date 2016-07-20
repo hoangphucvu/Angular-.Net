@@ -11,12 +11,24 @@ namespace AngularForMVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class User
     {
         public int UserId { get; set; }
+
+        [Required(ErrorMessage = "Username required", AllowEmptyStrings = false)]
         public string Username { get; set; }
+
+        [Required(ErrorMessage = "Password required", AllowEmptyStrings = false)]
         public string Password { get; set; }
+
+        [Required(ErrorMessage = "Fullname required", AllowEmptyStrings = false)]
         public string Fullname { get; set; }
+
+        [Required(ErrorMessage = "EmailId required", AllowEmptyStrings = false)]
+        public string EmailId { get; set; }
+
+        [Required(ErrorMessage = "Gender required", AllowEmptyStrings = false)]
+        public string Gender { get; set; }
     }
 }

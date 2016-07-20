@@ -32,5 +32,10 @@ namespace AngularForMVC.Controllers
         {
             return View();
         }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
     }
 }

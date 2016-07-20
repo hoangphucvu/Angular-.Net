@@ -59,5 +59,34 @@ namespace AngularForMVC.Controllers
             }
             return new JsonResult { Data = allStates, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
+
+        [HttpPost]
+        public JsonResult Register(User user)
+        {
+            string message = string.Empty;
+            if (ModelState.IsValid)
+            {
+                using (MyDatabaseEntities dc = new MyDatabaseEntities())
+                {
+                    var userExits = dc.User.Where(u => u.Username.Equals(user.Username)).FirstOrDefault();
+                    if (userExits == null)
+                    {
+                        dc.User.Add(user);
+                        dc.SaveChanges();
+                        message = "Success";
+                    }
+                    else
+                    {
+                        message = "Username not available!";
+                    }
+                }
+            }
+            else
+            {
+                message = "Model state is not valid!";
+            }
+
+            return new JsonResult { Data = message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
     }
 }

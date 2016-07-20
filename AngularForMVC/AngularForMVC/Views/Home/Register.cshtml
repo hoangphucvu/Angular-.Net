@@ -1,0 +1,53 @@
+﻿<style>
+    input {
+        padding: 5px;
+        border: 1px solid #A5A5A5;
+    }
+
+        input.ng-dirty.ng-invalid {
+            border: 1px solid red;
+            background-color: rgb(255, 244, 244);
+        }
+
+    .error {
+        color: red;
+    }
+</style>
+
+<div ng-controller="RegisterController">
+    <form novalidate name="f1" ng-submit="SaveData(User)">
+        <div style="color:red">{{message}}</div>
+        <div>
+            Fullname
+            <input type="text" ng-model="User.FullName" name="uFullName" ng-class="submitted?'ng-dirty':''" required autofocus />
+            <span class="error" ng-show="(f1.uFullName.$dirty || submitted) && f1.uFullName.$error.required">Fullname is required</span>
+            <!-- here (f1.uFullName.$dirty || submitted) means if submit button clicked or it is dirty -->
+        </div>
+        <div>
+            Email
+            <input type="email" ng-model="User.EmailID" name="uEmailID" ng-class="submitted?'ng-dirty':''" />
+            <span class="error" ng-show="(f1.uEmailID.$dirty || submitted) && f1.uEmailID.$error.email">Email ID not valid!</span>
+        </div>
+        <div>
+            Username
+            <input type="text" ng-model="User.Username" name="uUsername" ng-class="submitted?'ng-dirty':''" required />
+            <span class="error" ng-show="(f1.uUsername.$dirty || submitted) && f1.uUsername.$error.required">Username required!</span>
+        </div>
+        <div>
+            Password
+            <input type="password" ng-model="User.Password" name="uPassword" ng-class="submitted?'ng-dirty':''" required />
+            <span class="error" ng-show="(f1.uPassword.$dirty || submitted) && f1.uPassword.$error.required">Password required!</span>
+        </div>
+        <div>
+            Gender
+            <input type="radio" ng-model="User.Gender" name="uGender" value="Male" required /> Male
+            <input type="radio" ng-model="User.Gender" name="uGender" value="Female" required /> Female
+            <span class="error" ng-show="(f1.uGender.$dirty || submitted) && f1.uGender.$error.required">Gender required!</span>
+        </div>
+        <input type="submit" value="{{submitText}}" />
+    </form>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/AngularController/RegisterController.js"></script>
+}
