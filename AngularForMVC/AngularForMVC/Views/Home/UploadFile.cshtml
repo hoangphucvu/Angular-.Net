@@ -1,0 +1,12 @@
+﻿<div ng-controller="UploadController">
+    <form novalidate name="f1" ng-submit="SaveFile()">
+        <div style="color: red">{{Message}}</div>
+        <input type="file" accept="image/*" onchange="angular.element(this).scope().selectFileUpload(this.files)" required />
+        <span class="error" ng-show="(f1.file.$dirty || IsFormSubmitted) && f1.file.$error.required">Image required!</span>
+        <span class="error">{{FileInvalidMessage}}</span>
+        <input type="submit" value="Upload File" />
+    </form>
+</div>
+@section scripts{
+    <script src="~/Scripts/AngularController/UploadController.js"></script>
+}

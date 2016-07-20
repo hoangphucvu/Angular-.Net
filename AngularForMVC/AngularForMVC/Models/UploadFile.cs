@@ -12,13 +12,11 @@ namespace AngularForMVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class UploadFile
     {
-        public int UserId { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Fullname { get; set; }
-        public string EmailId { get; set; }
-        public string Gender { get; set; }
+        public int FileId { get; set; }
+        public string FileName { get; set; }
+        public string FilePath { get; set; }
+        public int FileSize { get; set; }
     }
 }

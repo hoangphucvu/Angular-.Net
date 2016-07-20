@@ -30,5 +30,6 @@ namespace AngularForMVC.Models
         public virtual DbSet<Country> Country { get; set; }
         public virtual DbSet<State> State { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UploadFile> UploadFile { get; set; }
     }
 }

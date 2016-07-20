@@ -1,6 +1,7 @@
 ﻿using AngularForMVC.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -87,6 +88,43 @@ namespace AngularForMVC.Controllers
             }
 
             return new JsonResult { Data = message, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+        [HttpPost]
+        public JsonResult UpFile()
+        {
+            string message, fileName, actualFileName;
+            message = fileName = actualFileName = string.Empty;
+            bool flag = false;
+            if (Request.Files != null)
+            {
+                var file = Request.Files[0];
+                actualFileName = file.FileName;
+                fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                int size = file.ContentLength;
+                try
+                {
+                    file.SaveAs(Path.Combine(Server.MapPath("~/UploadedFiles"), fileName));
+                    UploadFile f = new UploadFile
+                    {
+                        FileName = actualFileName,
+                        FilePath = fileName,
+                        FileSize = size
+                    };
+                    using (MyDatabaseEntities dc = new MyDatabaseEntities())
+                    {
+                        dc.UploadFile.Add(f);
+                        dc.SaveChanges();
+                        message = "File uploaded successfully";
+                        flag = true;
+                    }
+                }
+                catch
+                {
+                    message = "File upload failed! Please try again";
+                }
+            }
+            return new JsonResult { Data = new { Message = message, Status = flag } };
         }
     }
 }
