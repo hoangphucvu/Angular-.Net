@@ -1,0 +1,22 @@
+﻿<div ng-controller="CountryController">
+    <div angucomplete-alt id="txtAutocomplete" placeholder="Type country name" pause="100"
+         selected-object="afterSelectedCountry" local-data="Countries" search-fields="CountryName"
+         title-field="CountryName" minlength="1" input-class="form-control" match-class="highlight">
+    </div>
+
+    <div ng-show="SelectedCountry">
+        Selected Country: {{SelectedCountry.CountryName}}
+    </div>
+</div>
+
+<link href="~/Content/angucomplete-alt.css" rel="stylesheet" />
+<style type="text/css">
+    .angucomplete-dropdown {
+        overflow-y: auto;
+        max-height: 200px;
+    }
+</style>
+@section scripts{
+    <script src="~/Scripts/angucomplete-alt.js"></script>
+    <script src="~/Scripts/AngularController/CountryController.js"></script>
+}

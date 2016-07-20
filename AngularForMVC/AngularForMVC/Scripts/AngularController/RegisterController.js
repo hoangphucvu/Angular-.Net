@@ -47,6 +47,7 @@ factory('RegisterService', function ($http, $q) {
     //here $q is a angularjs service with help us to run asynchronous function and return result when processing done
     var fac = {};
     fac.SaveFormData = function (data) {
+        //delay result until a later time
         var defer = $q.defer();
         $http({
             url: '/Data/Register',
@@ -59,6 +60,7 @@ factory('RegisterService', function ($http, $q) {
             alert('Error');
             defer.reject(err);
         });
+        //notify that task is completed
         return defer.promise;
     }
     return fac;
