@@ -3,5 +3,12 @@
 }
 
 <div ng-controller="HomeController">
-    {{message}}
+    {{message}}<br />
+    @Html.ActionLink("Display data to table", "Data", "Home", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Login", "Login", "Home", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Get employee list", "Employee", "Home", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("State", "State", "Home", null, new { @class = "btn btn-primary" })<br />
+    @Html.ActionLink("Register User", "Register", "Home", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Search auto complete", "Search", "Home", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Upload file", "UploadFile", "Home", null, new { @class = "btn btn-primary" })
 </div>
