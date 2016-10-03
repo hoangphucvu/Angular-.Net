@@ -14,11 +14,11 @@ app.config(['$locationProvider', '$routeProvider', function ($locationProvider, 
         templateUrl: '/Template/Home.html',
         controller: 'HomeController'
     })
-    .when('/about', {
+    .when('/home/about', {
         templateUrl: '/Template/About.html',
         controller: 'AboutController'
     })
-    .when('/order/:id', {
+    .when('/home/order/:id', {
         templateUrl: '/Template/Order.html',
         controller: 'OrderController'
     })
